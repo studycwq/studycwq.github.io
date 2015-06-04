@@ -42,7 +42,7 @@ function getHeartPoint(angle) {
 	return new Array(offsetX + x, offsetY + y);
 }
 
-function startHeartAnimation() {
+function startHeartAnimation(first) {
 	var interval = 50;
 	var angle = 10;
 	var heart = new Array();
@@ -63,11 +63,15 @@ function startHeartAnimation() {
 		}
 		if (angle >= 30) {
 			clearInterval(animationTimer);
-			showMessages();
+            if(first) showMessages();
 		} else {
 			angle += 0.2;
 		}
 	}, interval);
+}
+
+function clearHeart() {
+    garden.clear();   
 }
 
 (function($) {
